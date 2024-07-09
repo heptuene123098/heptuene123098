@@ -17,21 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Fetch and display GitHub repositories
-    fetchGitHubRepos();
+    // Manually add specified repositories
+    const repos = [
+        {
+            name: "Sales Dashboard",
+            description: "An interactive sales dashboard to visualize sales data.",
+            url: "https://heptuene123098.github.io/Sales-dashboard/"
+        },
+        {
+            name: "Rivers State Election",
+            description: "A data visualization project on the Rivers State election.",
+            url: "https://heptuene123098.github.io/Rivers-State-Election/"
+        },
+        {
+            name: "Flood Prediction",
+            description: "A project predicting flood risks using machine learning.",
+            url: "https://heptuene123098.github.io/Flood-Prediction/"
+        }
+    ];
+
+    displayRepos(repos);
 });
-
-function fetchGitHubRepos() {
-    const username = 'heptuene123098'; // Replace with your GitHub username
-    const apiUrl = `https://api.github.com/users/$heptuene123098/repos`;
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(repos => {
-            displayRepos(repos);
-        })
-        .catch(error => console.error('Error fetching repos:', error));
-}
 
 function displayRepos(repos) {
     const projectsSection = document.getElementById('projects');
@@ -46,12 +52,12 @@ function displayRepos(repos) {
         repoName.textContent = repo.name;
 
         const repoDescription = document.createElement('p');
-        repoDescription.textContent = repo.description || 'No description provided';
+        repoDescription.textContent = repo.description;
 
         const repoLink = document.createElement('a');
-        repoLink.href = repo.html_url;
+        repoLink.href = repo.url;
         repoLink.target = '_blank';
-        repoLink.textContent = 'View Repository';
+        repoLink.textContent = 'View Project';
 
         repoItem.appendChild(repoName);
         repoItem.appendChild(repoDescription);
