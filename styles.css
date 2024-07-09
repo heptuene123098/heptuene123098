@@ -43,7 +43,7 @@ section {
     text-align: center;
 }
 
-.project {
+.project, .repo-item {
     margin-bottom: 20px;
 }
 
@@ -61,14 +61,40 @@ footer {
     bottom: 0;
     width: 100%;
 }
-/* Add a fade-in effect to sections */
-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+/* Additional styles for the projects section */
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+.repo-item {
+    background-color: #e4e4e4;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(33% - 20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.repo-item:hover {
+    transform: translateY(-5px);
+}
+
+.repo-item h3 {
+    margin: 0;
+}
+
+.repo-item p {
+    margin: 10px 0;
+}
+
+.repo-item a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: right;
 }
